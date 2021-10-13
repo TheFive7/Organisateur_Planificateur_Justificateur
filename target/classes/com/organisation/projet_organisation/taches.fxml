@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2" fx:controller="com.organisation.projet_organisation.Controller">
+   <children>
+      <ImageView fitHeight="157.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@taches.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="514.0" layoutY="17.0" minHeight="55.0" minWidth="100.0" mnemonicParsing="false" onAction="#taches_click" opacity="0.0" />
+      <Button layoutX="135.0" layoutY="17.0" minHeight="55.0" minWidth="164.0" mnemonicParsing="false" onAction="#ressources_click" opacity="0.0" />
+      <Button layoutX="820.0" layoutY="17.0" minHeight="55.0" minWidth="155.0" mnemonicParsing="false" onAction="#vue_perso_click" opacity="0.0" />
+   </children>
+</AnchorPane>
