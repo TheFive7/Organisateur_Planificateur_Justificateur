@@ -6,13 +6,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.organisation.projet_organisation.Controller">
    <children>
-      <ImageView fitHeight="157.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1024.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@vue_perso_menu.png" />
+            <Image url="@vue_perso.png" />
          </image>
       </ImageView>
       <Button layoutX="135.0" layoutY="17.0" minHeight="55.0" minWidth="164.0" mnemonicParsing="false" onAction="#ressources_click" opacity="0.0" />
       <Button layoutX="514.0" layoutY="17.0" minHeight="55.0" minWidth="100.0" mnemonicParsing="false" onAction="#taches_click" opacity="0.0" />
       <Button layoutX="820.0" layoutY="17.0" minHeight="55.0" minWidth="155.0" mnemonicParsing="false" onAction="#vue_perso_click" opacity="0.0" />
+      <Button layoutX="1415.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#exit" opacity="0.0" />
    </children>
 </AnchorPane>

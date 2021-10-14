@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="258.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.organisation.projet_organisation.Controller">
+   <children>
+      <ImageView fitHeight="512.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ressources_modifier.png" />
+         </image></ImageView>
+      <TextField fx:id="nameFieldModify" layoutX="76.0" layoutY="85.0" onKeyReleased="#changeName" prefHeight="30.0" prefWidth="160.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="surnameFieldModify" layoutX="96.0" layoutY="152.0" minHeight="30.0" onKeyReleased="#changeSurname" prefHeight="30.0" prefWidth="140.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="descriptionFieldModify" layoutX="23.0" layoutY="256.0" onKeyReleased="#changeDescription" prefHeight="116.0" prefWidth="213.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="closeButtonModify" layoutX="233.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#quit" opacity="0.0" />
+   </children>
+</Pane>
