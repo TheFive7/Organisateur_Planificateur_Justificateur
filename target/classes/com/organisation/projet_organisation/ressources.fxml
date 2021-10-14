@@ -7,6 +7,10 @@
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.organisation.projet_organisation.Controller">
    <children>
+      <ImageView fitHeight="870.0" fitWidth="1440.0" layoutY="157.0" pickOnBounds="true">
+         <image>
+            <Image url="@background.png" />
+         </image></ImageView>
       <ImageView fitHeight="157.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@ressources.png" />
@@ -15,7 +19,8 @@
       <Button layoutX="135.0" layoutY="17.0" minHeight="55.0" minWidth="164.0" mnemonicParsing="false" onAction="#ressources_click" opacity="0.0" />
       <Button layoutX="514.0" layoutY="17.0" minHeight="55.0" minWidth="100.0" mnemonicParsing="false" onAction="#taches_click" opacity="0.0" />
       <Button layoutX="820.0" layoutY="17.0" minHeight="55.0" minWidth="155.0" mnemonicParsing="false" onAction="#vue_perso_click" opacity="0.0" />
-      <Button layoutX="126.0" layoutY="107.0" mnemonicParsing="false" onAction="#addRessource" text="Button" />
+      <Button layoutX="1302.0" layoutY="96.0" minHeight="55.0" minWidth="55.0" mnemonicParsing="false" onAction="#addRessource" opacity="0.0" />
+      <Button layoutX="1415.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#exit" opacity="0.02" />
    </children>
    <opaqueInsets>
       <Insets />

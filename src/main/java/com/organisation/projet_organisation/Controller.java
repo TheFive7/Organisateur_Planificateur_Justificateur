@@ -1,29 +1,70 @@
 package com.organisation.projet_organisation;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import static com.organisation.projet_organisation.Main.*;
 import static com.organisation.projet_organisation.Ressource.ressources;
 
 public class Controller {
+    public static int actualLigneModify;
+
     @FXML
     private Pane pane;
 
+    // STAGE MODIFIER
+    @FXML
+    private Button closeButtonModify;
+    @FXML
+    private TextField nameFieldModify;
+    @FXML
+    private TextField surnameFieldModify;
+    @FXML
+    private TextArea descriptionFieldModify;
+
     public Controller(){}
 
-    // LIGNE
+    // ADD
     public void addRessource() {
-        Ressource ressource = new Ressource("Nom","Prénom","Description (in english)");
-        ressources.add(ressource);
-        Ligne ligne = new Ligne(ressources.size());
+        new Ressource(pane,this,"Nom","Prénom","Description");
+    }
 
-        // LIGNE
-        ligne.setNom(ressource.getNom());
-        ligne.setPrenom(ressource.getPrenom());
-        ligne.setDescription(ressource.getDescription());
+    // DELETE
+    public void deleteRessource(int i) {
+        Ressource r = ressources[i];
+        ressources[i] = null;
+        pane.getChildren().remove(r.getLigne());
+    }
 
-        pane.getChildren().add(ligne);
+    // MODIFY
+    public void modifyRessource(int i) {
+        actualLigneModify = i;
+        Stage newStage = new Stage();
+        newStage.initStyle(StageStyle.TRANSPARENT);
+        newStage.setScene(scene_ressources_modifier);
+
+/*        nameFieldModify.setText(ressources[actualLigneModify].getLigne().labelnom.getText());
+        surnameFieldModify.setText(ressources[actualLigneModify].getLigne().labelprenom.getText());
+        descriptionFieldModify.setText(ressources[actualLigneModify].getLigne().textDescription.getText());*/
+
+        newStage.show();
+    }
+
+    public void changeName() {
+        ressources[actualLigneModify].getLigne().labelnom.setText(nameFieldModify.getText());
+    }
+
+    public void changeSurname() {
+        ressources[actualLigneModify].getLigne().labelprenom.setText(surnameFieldModify.getText());
+    }
+
+    public void changeDescription() {
+        ressources[actualLigneModify].getLigne().textDescription.setText(descriptionFieldModify.getText());
     }
 
     // ACCUEIL
@@ -44,21 +85,11 @@ public class Controller {
         primaryStage.setScene(scene_vue_perso);
     }
 
-    // ADD/DELETE/MODIFY
-    public void add_ressource() {
-        System.out.println("Ressource ajoutée");
-        ressources.add(new Ressource("HENNEQUIN","Maxime","Il est gentil !"));
-        System.out.println(ressources.toString());
+    public void exit() { System.exit(0); }
+
+    // MINI MENU
+    public void quit() {
+        Stage stage = (Stage) closeButtonModify.getScene().getWindow();
+        stage.close();
     }
-
-    public void delete_ressource() {
-        System.out.println("Ressource supprimmée");
-    }
-
-    public void modify_ressource() {
-        System.out.println("Ressource modifiée");
-    }
-
-    // TACHES
-
 }

@@ -9,14 +9,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import static com.organisation.projet_organisation.Ressource.ressources;
+
 public class Ligne extends Pane {
+    int id;
     Label labelnom;
     Label labelprenom;
     TextArea textDescription;
 
-    Ligne(int numero) {
+    Ligne(int numero, Controller controller) {
+        id = numero;
+
         // Layout
-        setLayoutY(157 + (107*(numero-1)));
+        setLayoutY(157 + (107*numero));
         setPrefHeight(107);setPrefWidth(1440);
 
         // Font
@@ -55,29 +60,25 @@ public class Ligne extends Pane {
 
         // MODIFY
         Button button_modify = new Button();
-        button_modify.setLayoutX(1123); button_modify.setLayoutY(25);
+        button_modify.setLayoutX(1038); button_modify.setLayoutY(25);
         button_modify.setMinHeight(55);button_modify.setMinWidth(55);
         button_modify.setMnemonicParsing(false);
         button_modify.setOpacity(0);
-        button_modify.setOnAction(actionEvent -> {System.out.println("Ressource modifiée");});
+        button_modify.setOnAction(actionEvent -> {
+            controller.modifyRessource(id);
+        });
 
         // DELETE
         Button button_delete = new Button();
-        button_delete.setLayoutX(1240); button_delete.setLayoutY(25);
+        button_delete.setLayoutX(1302); button_delete.setLayoutY(25);
         button_delete.setMinHeight(55);button_delete.setMinWidth(55);
         button_delete.setMnemonicParsing(false);
         button_delete.setOpacity(0);
-        button_delete.setOnAction(actionEvent -> {System.out.println("Ressource supprimmée");});
+        button_delete.setOnAction(actionEvent -> {
+            controller.deleteRessource(id);
+        });
 
-        // ADD
-        Button button_add = new Button();
-        button_add.setLayoutX(1354); button_add.setLayoutY(25);
-        button_add.setMinHeight(55);button_add.setMinWidth(55);
-        button_add.setMnemonicParsing(false);
-        button_add.setOpacity(0);
-        button_add.setOnAction(actionEvent -> {System.out.println("Ressource ajoutée");});
-
-        getChildren().addAll(imageView,labelnom,labelprenom,textDescription,textAssignation,button_modify,button_delete,button_add);
+        getChildren().addAll(imageView,labelnom,labelprenom,textDescription,textAssignation,button_modify,button_delete);
     }
 
     void setNom(String nom) {
