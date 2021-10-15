@@ -7,9 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-
-import static com.organisation.projet_organisation.Ressource.ressources;
 
 public class Ligne extends Pane {
     int id;
@@ -50,6 +47,7 @@ public class Ligne extends Pane {
         textDescription.setFont(font14);
         textDescription.setLayoutX(329);textDescription.setLayoutY(17);
         textDescription.setPrefHeight(70);textDescription.setPrefWidth(224);
+        textDescription.setDisable(true);
 
         // ASSIGNATION
         TextArea textAssignation = new TextArea();
@@ -64,9 +62,7 @@ public class Ligne extends Pane {
         button_modify.setMinHeight(55);button_modify.setMinWidth(55);
         button_modify.setMnemonicParsing(false);
         button_modify.setOpacity(0);
-        button_modify.setOnAction(actionEvent -> {
-            controller.modifyRessource(id);
-        });
+        button_modify.setOnAction(actionEvent -> controller.modifyRessource(id));
 
         // DELETE
         Button button_delete = new Button();
@@ -74,9 +70,7 @@ public class Ligne extends Pane {
         button_delete.setMinHeight(55);button_delete.setMinWidth(55);
         button_delete.setMnemonicParsing(false);
         button_delete.setOpacity(0);
-        button_delete.setOnAction(actionEvent -> {
-            controller.deleteRessource(id);
-        });
+        button_delete.setOnAction(actionEvent -> controller.deleteRessource(id));
 
         getChildren().addAll(imageView,labelnom,labelprenom,textDescription,textAssignation,button_modify,button_delete);
     }

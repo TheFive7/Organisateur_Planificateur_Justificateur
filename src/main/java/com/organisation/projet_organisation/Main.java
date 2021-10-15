@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class Main extends Application {
     public static Stage primaryStage;
@@ -24,6 +23,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         primaryStage = stage;
 
         // PRINCIPAL

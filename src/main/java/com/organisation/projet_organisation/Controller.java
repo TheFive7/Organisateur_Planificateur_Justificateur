@@ -8,11 +8,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
+import java.util.Arrays;
+
 import static com.organisation.projet_organisation.Main.*;
 import static com.organisation.projet_organisation.Ressource.ressources;
 
 public class Controller {
     public static int actualLigneModify;
+    // Save save = new Save("r");
 
     @FXML
     private Pane pane;
@@ -31,7 +35,9 @@ public class Controller {
 
     // ADD
     public void addRessource() {
-        new Ressource(pane,this,"Nom","Prénom","Description");
+        Ressource ressource = new Ressource("Nom","Prénom","Description");
+        ressource.assignLigne(pane,this);
+        //save.saveRessource();
     }
 
     // DELETE
@@ -39,6 +45,7 @@ public class Controller {
         Ressource r = ressources[i];
         ressources[i] = null;
         pane.getChildren().remove(r.getLigne());
+        //save.saveRessource();
     }
 
     // MODIFY
@@ -48,11 +55,14 @@ public class Controller {
         newStage.initStyle(StageStyle.TRANSPARENT);
         newStage.setScene(scene_ressources_modifier);
 
-/*        nameFieldModify.setText(ressources[actualLigneModify].getLigne().labelnom.getText());
-        surnameFieldModify.setText(ressources[actualLigneModify].getLigne().labelprenom.getText());
-        descriptionFieldModify.setText(ressources[actualLigneModify].getLigne().textDescription.getText());*/
-
+        //save.saveRessource();
         newStage.show();
+    }
+
+    public void initModify() {
+        nameFieldModify.setText(ressources[actualLigneModify].getLigne().labelnom.getText());
+        surnameFieldModify.setText(ressources[actualLigneModify].getLigne().labelprenom.getText());
+        descriptionFieldModify.setText(ressources[actualLigneModify].getLigne().textDescription.getText());
     }
 
     public void changeName() {
@@ -85,10 +95,15 @@ public class Controller {
         primaryStage.setScene(scene_vue_perso);
     }
 
-    public void exit() { System.exit(0); }
+    public void exit() {
+        //System.out.println(Arrays.toString(save.loadRessource()));
+        System.out.println(Arrays.toString(ressources));
+        System.exit(0);
+    }
 
-    // MINI MENU
+    // MINI MENU MODIFY
     public void quit() {
+        //save.saveRessource();
         Stage stage = (Stage) closeButtonModify.getScene().getWindow();
         stage.close();
     }
