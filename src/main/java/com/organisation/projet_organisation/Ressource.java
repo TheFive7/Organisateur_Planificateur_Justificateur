@@ -3,6 +3,8 @@ package com.organisation.projet_organisation;
 import javafx.scene.layout.Pane;
 import java.io.Serializable;
 
+import static com.organisation.projet_organisation.Ligne.lignes;
+
 public class Ressource implements Serializable {
     static int compteur = 0;
 
@@ -10,7 +12,6 @@ public class Ressource implements Serializable {
     private String prenom;
     private String description;
     private Tache assignation;
-    private Ligne ligne;
     public static Ressource[] ressources = new Ressource[250];
 
     public Ressource(String nom, String prenom, String description) {
@@ -30,6 +31,7 @@ public class Ressource implements Serializable {
     }
 
     public void assignLigne(Pane pane, Controller controller) {
+        Ligne ligne = null;
         compteur = 0;
         for (Ressource ressource:ressources) {
             if(ressource==null){
@@ -44,6 +46,7 @@ public class Ressource implements Serializable {
             ligne.setPrenom(getPrenom());
             ligne.setDescription(getDescription());
 
+            lignes[compteur] = ligne;
             ressources[compteur] = this;
             pane.getChildren().add(ligne);
         }
@@ -60,8 +63,6 @@ public class Ressource implements Serializable {
     public String getDescription() {
         return description;
     }
-
-    public Ligne getLigne() { return ligne; }
 
     public void setNom(String nom) {
         this.nom = nom;

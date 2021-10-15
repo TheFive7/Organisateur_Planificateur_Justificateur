@@ -11,12 +11,13 @@ import javafx.stage.StageStyle;
 
 import java.util.Arrays;
 
+import static com.organisation.projet_organisation.Ligne.lignes;
 import static com.organisation.projet_organisation.Main.*;
 import static com.organisation.projet_organisation.Ressource.ressources;
 
 public class Controller {
     public static int actualLigneModify;
-    // Save save = new Save("r");
+    Save save = new Save("r");
 
     @FXML
     private Pane pane;
@@ -37,15 +38,15 @@ public class Controller {
     public void addRessource() {
         Ressource ressource = new Ressource("Nom","Prénom","Description");
         ressource.assignLigne(pane,this);
-        //save.saveRessource();
+        save.saveRessource();
     }
 
     // DELETE
     public void deleteRessource(int i) {
-        Ressource r = ressources[i];
+        Ligne l = lignes[i];
         ressources[i] = null;
-        pane.getChildren().remove(r.getLigne());
-        //save.saveRessource();
+        pane.getChildren().remove(l);
+        save.saveRessource();
     }
 
     // MODIFY
@@ -55,26 +56,29 @@ public class Controller {
         newStage.initStyle(StageStyle.TRANSPARENT);
         newStage.setScene(scene_ressources_modifier);
 
-        //save.saveRessource();
+        save.saveRessource();
         newStage.show();
     }
-
+/*
     public void initModify() {
         nameFieldModify.setText(ressources[actualLigneModify].getLigne().labelnom.getText());
         surnameFieldModify.setText(ressources[actualLigneModify].getLigne().labelprenom.getText());
         descriptionFieldModify.setText(ressources[actualLigneModify].getLigne().textDescription.getText());
-    }
+    }*/
 
     public void changeName() {
-        ressources[actualLigneModify].getLigne().labelnom.setText(nameFieldModify.getText());
+        lignes[actualLigneModify].labelnom.setText(nameFieldModify.getText());
+        ressources[actualLigneModify].setNom(lignes[actualLigneModify].labelnom.getText());
     }
 
     public void changeSurname() {
-        ressources[actualLigneModify].getLigne().labelprenom.setText(surnameFieldModify.getText());
+        lignes[actualLigneModify].labelprenom.setText(surnameFieldModify.getText());
+        ressources[actualLigneModify].setPrenom(lignes[actualLigneModify].labelprenom.getText());
     }
 
     public void changeDescription() {
-        ressources[actualLigneModify].getLigne().textDescription.setText(descriptionFieldModify.getText());
+        lignes[actualLigneModify].textDescription.setText(descriptionFieldModify.getText());
+        ressources[actualLigneModify].setDescription(lignes[actualLigneModify].textDescription.getText());
     }
 
     // ACCUEIL
@@ -96,14 +100,14 @@ public class Controller {
     }
 
     public void exit() {
-        //System.out.println(Arrays.toString(save.loadRessource()));
+        System.out.println(Arrays.toString(save.loadRessource()));
         System.out.println(Arrays.toString(ressources));
         System.exit(0);
     }
 
     // MINI MENU MODIFY
     public void quit() {
-        //save.saveRessource();
+        save.saveRessource();
         Stage stage = (Stage) closeButtonModify.getScene().getWindow();
         stage.close();
     }

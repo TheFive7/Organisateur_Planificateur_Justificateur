@@ -13,9 +13,11 @@ public class Ligne extends Pane {
     Label labelnom;
     Label labelprenom;
     TextArea textDescription;
+    public static Ligne[] lignes = new Ligne[250];
 
     Ligne(int numero, Controller controller) {
         id = numero;
+
 
         // Layout
         setLayoutY(157 + (107*numero));

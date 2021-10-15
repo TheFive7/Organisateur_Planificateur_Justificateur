@@ -53,7 +53,7 @@ public class Main extends Application {
         scene_ressources_modifier = new Scene(root_ressources_modifier, 258, 512);
 
         // STAGE
-        stage.initStyle(StageStyle.TRANSPARENT);
+        // stage.initStyle(StageStyle.TRANSPARENT);
         stage.setTitle("ORGANISATION");
         stage.setScene(scene_accueil);
         stage.show();
