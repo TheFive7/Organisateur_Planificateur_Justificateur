@@ -6,6 +6,8 @@ import java.io.Serializable;
 import static com.organisation.projet_organisation.Ligne.lignes;
 
 public class Ressource implements Serializable {
+    public static int TAILLE_TABLEAU = 250;
+
     static int compteur = 0;
 
     private String nom;
@@ -33,7 +35,8 @@ public class Ressource implements Serializable {
     public void assignLigne(Pane pane, Controller controller) {
         Ligne ligne = null;
         compteur = 0;
-        for (Ressource ressource:ressources) {
+        for (Ressource ressource:ressources) { // recherche dans tout le tableau
+                                               // si il y a un emplacement de libre
             if(ressource==null){
                 ligne = new Ligne(compteur,controller);
                 break;
@@ -50,6 +53,15 @@ public class Ressource implements Serializable {
             ressources[compteur] = this;
             pane.getChildren().add(ligne);
         }
+    }
+
+    // compte le nombre de ressource, utile pour changer la taille du scroll panel
+    public int countRessource(){
+        int compteur = 0;
+        for (int k = 0; k < TAILLE_TABLEAU; k++){
+            if (ressources[k] == null) compteur++;
+        }
+        return compteur;
     }
 
     public String getNom() {

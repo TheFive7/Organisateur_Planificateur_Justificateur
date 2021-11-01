@@ -81,6 +81,11 @@ public class Controller {
         ressources[actualLigneModify].setDescription(lignes[actualLigneModify].textDescription.getText());
     }
 
+    public void changeLength(){
+        // pour l'instant ne change rien mais change la taille du scroll
+        // panel de la vue ressource dans le du
+    }
+
     // ACCUEIL
     public void continue_click() {
         primaryStage.setScene(scene_taches);
